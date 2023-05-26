@@ -144,7 +144,7 @@ describe("POST /api/users/login", () => {
 });
 
 // Tests involving getting users
-xdescribe("GET /api/users", () => {
+describe("GET /api/users", () => {
   test("Can get a list of all users when authorized", (done) => {
     request(app)
       .get("/api/users")
@@ -168,7 +168,7 @@ xdescribe("GET /api/users", () => {
 });
 
 // Tests involving getting individual users' pokemon
-xdescribe("GET /api/users/:id/pokemon", () => {
+describe("GET /api/users/:id/pokemon", () => {
   // Before tests in this slot, make Bob's Mewtwo his "favourite".
   beforeEach(async () => {
     await db
@@ -249,4 +249,5 @@ xdescribe("GET /api/users/:id/pokemon", () => {
   test("Cannot get a list of a user's Pokemon when not authenticated (HTTP 401)", (done) => {
     request(app).get(`/api/users/${userBob._id}/pokemon`).send().expect(401).end(done);
   });
+
 });
