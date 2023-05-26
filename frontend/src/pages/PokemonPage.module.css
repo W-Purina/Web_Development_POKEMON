@@ -1,15 +1,38 @@
 .container {
     display: flex;
-    justify-content: space-between;
-    padding: 24px;
-  }
-  
-  h2 {
+    justify-content: space-around;
+    align-items: start;
+    height: 100vh;
+    /* 这将使得容器填充整个视窗高度 */
+    overflow-y: auto;
+    /* 这将添加滚动条如果内容超出视窗高度 */
+}
+
+h2 {
     color: var(--main-color);
     font-size: 24px;
     line-height: 32px;
     font-weight: 700;
     opacity: .9;
     margin-bottom: 24px;
+}
+
+.container > div {
+    flex: 1;
+    margin: 10px;
+    overflow-y: auto; /* 这将为此 div 添加垂直滚动条 */
+    max-height: 80vh; /* 这将设置 div 的最大高度 */
+  }
+
+  .container > div::-webkit-scrollbar {
+    width: 8px;
   }
   
+  .container > div::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  
+  .container > div::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 20px;
+  }
