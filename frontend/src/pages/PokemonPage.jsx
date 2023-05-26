@@ -24,11 +24,38 @@ export default function PokemonPage() {
     setSelectedPokemonId(pokemon._id);
   }
 
+  // 更新 Pokemon 数据
+  const updatePokemon = async (pokemon) => {
+    const response = await fetch(`${POKEMON_URL}/${pokemon._id}/setFavourite`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({ isFavourite: !pokemon.isFavourite })
+    });
+
+    if (response.ok) {
+      // 如果 API 调用成功，刷新数据
+      refresh();
+    } else {
+      // 如果 API 调用失败，显示错误消息
+      alert('Failed to update pokemon');
+    }
+  };
+
+  // 当 PokemonIcon 被双击时，更新它的“收藏”状态
+  const handleDoubleClick = (e, pokemon) => {
+    updatePokemon(pokemon);
+  };
+
+
+
   return (
     <div className={styles.container}>
       <div>
         <h2>My Pokemon</h2>
-        <PokemonList pokemon={pokemon} onClick={handleClick} />
+        <PokemonList pokemon={pokemon} onClick={handleClick} onDoubleClick={handleDoubleClick} />
       </div>
 
       <div>

@@ -17,3 +17,12 @@
 .shiny p::after {
   content: "✨";
 }
+
+.favourite p{
+  font-style: italic;
+  color: red;
+}
+
+.favourite p::after{
+  content:"❤️"
+}

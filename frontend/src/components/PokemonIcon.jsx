@@ -1,4 +1,5 @@
 import styles from "./PokemonIcon.module.css";
+import { setFavourite } from '../api/api';
 import clsx from "clsx";
 
 /**
@@ -7,7 +8,7 @@ import clsx from "clsx";
  * NOTE: Uses clsx, which is essentially a helper function which combines several,
  * often conditional, class names into one proper CSS class name definition.
  */
-export function PokemonIcon({ pokemon, ...props }) {
+export function PokemonIcon({ pokemon,onClick,onDoubleClick }) {
   const imgSrc = pokemon.isShiny
     ? pokemon.species.image.thumbnail.shiny
     : pokemon.species.image.thumbnail.normal;
@@ -18,7 +19,8 @@ export function PokemonIcon({ pokemon, ...props }) {
         pokemon.isShiny && styles.shiny,
         pokemon.isFavourite && styles.favourite
       )}
-      {...props}
+      onClick={onClick}
+      onDoubleClick={onDoubleClick}
     >
       <img src={imgSrc} />
       <p>{pokemon.nickname}</p>

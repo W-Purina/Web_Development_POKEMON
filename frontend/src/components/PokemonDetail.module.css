@@ -12,3 +12,7 @@
 .shiny h3::after {
   content: "✨";
 }
+
+.favourite h3::after{
+  content:"❤️"
+}
