@@ -7,7 +7,7 @@ import styles from "./Header.module.css";
 
 
 export default function FavouritesPage() {
-    const { username, _id} = useUser();
+    const { username, _id } = useUser();
     const { token } = useAuth();
     const [favourites, setFavourites] = useState([]);
     const [userFavourites, setUserFavourites] = useState([]);
@@ -31,17 +31,25 @@ export default function FavouritesPage() {
 
     useEffect(() => {
         const fetchFavouritesForUser = async user => {
-       
-            const response = await fetch(`http://localhost:3000/api/users/${user._id}/pokemon?favouritesOnly=true`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
+            try {
+                const response = await fetch(`http://localhost:3000/api/users/${user._id}/pokemon?favouritesOnly=true`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    return { ...user, favourites: data };
+                } else {
+                    console.error('Error fetching favourites:', response.status, response.statusText);
+                    return user;  // Return user without modifying it if there was a problem fetching favourites
                 }
-            });
-
-            const data = await response.json();
-            return { ...user, favourites: data };
-
+            } catch (error) {
+                console.error('Error in fetchFavouritesForUser:', error);
+                return user;  // Return user without modifying it if there was an error in the fetch call
+            }
         };
 
         const fetchUsers = async () => {
