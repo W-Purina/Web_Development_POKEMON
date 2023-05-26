@@ -58,7 +58,6 @@ router.get('/:id/pokemon', auth, async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) return res.status(404).send();
-    console.log(user)
     let query = { owner: user._id };
 
     // 如果用户在查看他人的宝可梦，或者请求参数中有 favouritesOnly=true，则只返回收藏的宝可梦
@@ -80,7 +79,7 @@ router.get('/:id/pokemon', auth, async (req, res) => {
 // GET /api/users
 router.get('/', auth, async (req, res) => {
   try {
-    const users = await User.find().select('username -_id');
+    const users = await User.find().select('username _id');
     res.json(users);
   } catch (err) {
     res.status(500).send();

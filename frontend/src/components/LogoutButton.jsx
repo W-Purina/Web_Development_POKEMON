@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./Auth";
+import styles from "./UsernamePasswordForm.module.css"
+
 
 /**
  * A button which logs the user out when clicked.
@@ -13,5 +15,5 @@ export default function LogoutButton() {
     navigate("/login");
   }
 
-  return <button onClick={handleClick}>Log out</button>;
+  return <button onClick={handleClick} className={styles.submitButton}>Log out</button>;
 }
