@@ -8,13 +8,11 @@ import LogoutButton from "../components/LogoutButton";
  */
 export default function MainLayout() {
   const { username } = useUser();
-
   return (
     <div>
       <h1>Pokemon Trader App</h1>
       <p>
-        Hi {username}! View your <Link to="/">Pokemon</Link>, or check out everyone's favourites
-        (not yet implemented)!
+        Hi {username}! View your Pokemon <Link to="/">Pokemon</Link>, or check out everyone's<Link to="/favourites">Favourites</Link>
       </p>
       <LogoutButton />
       <Outlet />

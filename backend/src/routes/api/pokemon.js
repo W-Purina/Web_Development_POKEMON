@@ -30,7 +30,7 @@ router.patch("/:id/setFavourite", auth, async (req, res) => {
   
   try {
     await setFavourite(req.user._id, pokemon._id, isFavourite);
-    return res.status(204).send();
+    return res.status(204).send({ isFavourite: isFavourite });
   } catch (error) {
     if(error.message === 'Not_Found'){
       return res.sendStatus(404)

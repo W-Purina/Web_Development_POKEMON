@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import UsernamePasswordForm from "../components/UsernamePasswordForm";
 import { login } from "../api/api";
 import { useAuth } from "../components/Auth";
+import styles from "./LoginPage.module.css"
 
 /**
  * Displays a form allowing the user to log in. If they do, will attempt to login via the API.
@@ -23,12 +24,16 @@ export default function LoginPage() {
   }
 
   return (
-    <div>
-      <h1>Log in</h1>
-      <UsernamePasswordForm buttonText="Log in" onSubmit={handleSubmit} />
-      <p>
-        New to the site? <Link to="/register">Create an account!</Link>
-      </p>
+    <div className={styles.body}>
+      <div className={styles.gradient}></div>
+      <div className={styles.container}>
+        <div className={styles.login}>
+          <UsernamePasswordForm buttonText="Log in" onSubmit={handleSubmit} />
+          <p>
+            New to the site? <Link to="/register">Create an account!</Link>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

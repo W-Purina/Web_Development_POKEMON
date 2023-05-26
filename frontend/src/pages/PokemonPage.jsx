@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useAuth } from "../components/Auth";
 import useGet from "../hooks/useGet";
 import { POKEMON_URL } from "../api/urls";
+import { useLocalStorage } from '../hooks/useLocalStorage';
+
 
 /**
  * The main app homepage. Displays all of the authenticated user's pokemon, and allows the
@@ -15,7 +17,7 @@ export default function PokemonPage() {
   const { token } = useAuth();
   const { data: pokemon, refresh } = useGet(POKEMON_URL, [], true);
   const [selectedPokemonId, setSelectedPokemonId] = useState(null);
-
+  const [refreshToggle, setRefreshToggle] = useLocalStorage('refreshToggle', false);
   const selectedPokemon = pokemon.find((p) => p._id == selectedPokemonId);
 
   // Changes which pokemon is displayed in the detail view, when one is clicked
@@ -37,7 +39,7 @@ export default function PokemonPage() {
 
     if (response.ok) {
       // 如果 API 调用成功，刷新数据
-      refresh();
+      refresh();     
     } else {
       // 如果 API 调用失败，显示错误消息
       alert('Failed to update pokemon');
@@ -47,6 +49,7 @@ export default function PokemonPage() {
   // 当 PokemonIcon 被双击时，更新它的“收藏”状态
   const handleDoubleClick = (e, pokemon) => {
     updatePokemon(pokemon);
+    setRefreshToggle(!refreshToggle);
   };
 
 

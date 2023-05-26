@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import styles from "./UsernamePasswordForm.module.css"
 /**
  * Allows the user to enter a username and password. When the "submit" button
  * is clicked, raises its onSubmit event, supplying the entered username and
@@ -16,25 +16,25 @@ export default function UsernamePasswordForm({ buttonText, onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="txtUsername">Username:</label>
       <input
         type="text"
         id="txtUsername"
-        name="username"
+        placeholder="username"
         value={username}
         required
         onChange={(e) => setUsername(e.target.value)}
+        className={styles.textInput}
       />
-      <label htmlFor="txtPassword">Password:</label>
       <input
         type="password"
         id="txtPassword"
-        name="password"
+        placeholder="password"
         value={password}
         required
         onChange={(e) => setPassword(e.target.value)}
+        className={styles.passwordInput}
       />
-      <button type="submit">{buttonText || "Submit"}</button>
+      <button type="submit" className={styles.submitButton}>{buttonText || "Submit"}</button>
     </form>
   );
 }

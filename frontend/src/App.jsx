@@ -4,6 +4,7 @@ import { RequiresAuth, RequiresNonAuth } from "./components/Auth";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import PokemonPage from "./pages/PokemonPage";
+import FavouritesPage from "./pages/FavouritesPage";
 
 /**
  * Main app component. Controls the frontend routing.
@@ -42,6 +43,15 @@ export default function App() {
           <RequiresNonAuth>
             <RegisterPage />
           </RequiresNonAuth>
+        }
+      />
+
+      <Route
+        path="/favourites"
+        element={
+          <RequiresAuth>
+            <FavouritesPage />
+          </RequiresAuth>
         }
       />
     </Routes>
