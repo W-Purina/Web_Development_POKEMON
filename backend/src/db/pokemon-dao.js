@@ -80,9 +80,9 @@ export function retrievePokemonForUser(ownerId) {
  * @param {*} ownerId the user whose pokemon to fetch
  * @returns the list of matching pokemon (an empty array if no matches)
  */
-export async function setFavourite(pokemonID, isFavourite) {
+export async function setFavourite(ownerId,pokemonID, isFavourite) {
   try {
-    const updatedPokemon = await Pokemon.findByIdAndUpdate(pokemonID, { isFavourite }, { new: true });
+    const updatedPokemon = await Pokemon.findOneAndUpdate({ _id: pokemonID, owner: ownerId }, { isFavourite }, { new: true });
     if (!updatedPokemon) {
       throw new Error('Not_Found')
     }
