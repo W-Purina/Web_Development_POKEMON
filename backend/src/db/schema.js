@@ -31,6 +31,7 @@ const speciesSchema = new Schema({
 const userSchema = new Schema({
   username: { type: String, unique: true, required: true },
   passHash: { type: String, required: true },
+  favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: "FavoritePokemon" }]
 });
 
 /**
@@ -41,6 +42,7 @@ const pokemonSchema = new Schema({
   owner: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   nickname: { type: String, required: true },
   isShiny: { type: Boolean, default: false },
+  isFavourite: { type: Boolean, default: false } //favorite部分
 });
 
 const Species = mongoose.model("Species", speciesSchema);

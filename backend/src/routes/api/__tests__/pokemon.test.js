@@ -160,7 +160,7 @@ describe("GET /api/pokemon/:id", () => {
 });
 
 // Tests involving updating favourite status
-xdescribe("PATCH /api/pokemon/:id/setFavourite", () => {
+describe("PATCH /api/pokemon/:id/setFavourite", () => {
   // Before tests in this slot, make Bob's Mewtwo his "favourite".
   beforeEach(async () => {
     await mongoose.connection.db

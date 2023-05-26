@@ -1,6 +1,6 @@
 import express from "express";
 import auth from "../../middleware/auth.js";
-import { retrievePokemonForUser, retrievePokemonById } from "../../db/pokemon-dao.js";
+import { setFavourite,retrievePokemonForUser, retrievePokemonById } from "../../db/pokemon-dao.js";
 
 const router = express.Router();
 
@@ -17,5 +17,28 @@ router.get("/:id", auth, async (req, res) => {
   if (!pokemon.owner.equals(req.user._id)) return res.sendStatus(404);
   return res.json(pokemon);
 });
+
+//处理添加favorite Pokeman
+router.patch("/:id/setFavourite", auth, async (req, res) => {
+  const pokemon = await retrievePokemonById(req.params.id);
+  if (!pokemon) return res.sendStatus(404);
+  if (!pokemon.owner.equals(req.user._id)) return res.sendStatus(404);
+
+  const isFavourite = req.body.isFavourite;
+
+  if (typeof isFavourite !== 'boolean') return res.sendStatus(422);
+  
+  try {
+    await setFavourite(pokemon._id, isFavourite);
+    return res.status(204).send();
+  } catch (error) {
+    if(error.message === 'Not_Found'){
+      return res.sendStatus(404)
+    }else{
+      console.error(error);
+      return res.sendStatus(500)
+    }
+  }
+})
 
 export default router;

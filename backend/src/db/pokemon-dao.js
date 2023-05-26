@@ -73,3 +73,21 @@ export function retrievePokemonById(id) {
 export function retrievePokemonForUser(ownerId) {
   return Pokemon.find({ owner: ownerId }).populate("species");
 }
+
+/**
+ * Gets favourite pokemon for given user
+ *
+ * @param {*} ownerId the user whose pokemon to fetch
+ * @returns the list of matching pokemon (an empty array if no matches)
+ */
+export async function setFavourite(pokemonID, isFavourite) {
+  try {
+    const updatedPokemon = await Pokemon.findByIdAndUpdate(pokemonID, { isFavourite }, { new: true });
+    if (!updatedPokemon) {
+      throw new Error('Not_Found')
+    }
+    return updatedPokemon;
+  } catch (error) {
+    throw error;
+  }
+}
