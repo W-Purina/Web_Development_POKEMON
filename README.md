@@ -114,4 +114,4 @@ For this task, modify as much of the frontend as you'd like, so that it retains 
 - It is possible to spend a practically unlimited amount of time on this task. Remember the 80/20 rule! I'm expecting you to do the "80%" for this task to get the vast majority of the available marks.
 
 ### Your text response to Task Five below:
-(your text here)
+I have designed some visual effects in CSS. On the registration page, I have used gradient backgrounds and trigger prompts to remind users when they haven't entered their names. After logging in, I made some changes to the display. I separated the Pokemon and their details, and added individual scrollbars for them so that users can view them independently. Additionally, for special identified Pokemon, such as shiny or favorite ones, I added shadows and symbols to highlight them.

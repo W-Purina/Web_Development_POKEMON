@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import UsernamePasswordForm from "../components/UsernamePasswordForm";
 import { login } from "../api/api";
 import { useAuth } from "../components/Auth";
-import styles from "./LoginPage.module.css"
+import styles from "./LoginPage.module.css";
 
 /**
  * Displays a form allowing the user to log in. If they do, will attempt to login via the API.
