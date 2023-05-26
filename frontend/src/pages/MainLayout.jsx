@@ -13,7 +13,7 @@ export default function MainLayout() {
     <div>
       <h1>Pokemon Trader App</h1>
       <p>
-        Hi {username}! View your Pokemon <Link to="/" className={styles.Link}>Pokemon</Link>, or check out everyone's<Link to="/favourites" className={styles.Link}>Favourites</Link>
+        Hi {username}! View your Pokemon <Link to="/" className={styles.Link}>Pokemon</Link>, or check out your's<Link to="/favourites" className={styles.Link}>Favourites</Link>
       </p>
       <LogoutButton />
       <Outlet />

@@ -1,5 +1,6 @@
 .listContainer {
   display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* 让元素可以折行 */
+  justify-content: space-around; /* 在行之间添加一些间距 */
+  gap: 1em; /* 设置元素之间的间距 */
 }

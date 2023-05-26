@@ -72,9 +72,9 @@ export default function FavouritesPage() {
     return (
         <div>
             <h1>Pokemon Trader App</h1>
-            <h2>
+            <p>
                 Hi {username}! View your <Link to="/" className={styles.Link}>Pokemon</Link>, or check out everyone's  <Link to="/favourites" className={styles.Link} onClick={() => setShowFavourites(true)}>favourites</Link>!
-            </h2>
+            </p>
 
             <h1>My Favourites</h1>
             <PokemonList pokemon={favourites} />

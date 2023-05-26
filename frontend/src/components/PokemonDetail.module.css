@@ -1,12 +1,37 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding: 24px;
+  border-radius: 20px;
+  background-color: var(--projects-section);
+  color: var(--main-color);
 }
 
 .container img {
   width: 250px;
+}
+
+.shiny {
+  background-color: var(--star);
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+  opacity: .8;
 }
 
 .shiny h3::after {
