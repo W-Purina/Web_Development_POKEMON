@@ -14,6 +14,7 @@ export default function PokemonDetail({ pokemon }) {
       className={clsx(
         styles.container,
         pokemon.isShiny && styles.shiny,
+        pokemon.isFavourite && styles.favourite,
       )}
     >
       <h3>{pokemon.nickname}</h3>

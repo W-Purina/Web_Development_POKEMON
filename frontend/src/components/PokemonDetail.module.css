@@ -6,15 +6,21 @@
   border-radius: 20px;
   background-color: var(--projects-section);
   color: var(--main-color);
+  transition: border 0.3s ease; /* 添加过渡效果 */
 }
 
 .container img {
   width: 250px;
 }
 
+
 .shiny {
-  background-color: var(--star);
+  border: 2px solid gold; /* 添加半透明的边框 */
+  color: gold; /* 设置文字颜色 */
+  box-shadow: 0px 0px 10px gold;
+
 }
+
 
 h3 {
   font-size: 20px;
@@ -38,6 +44,15 @@ p {
   content: "✨";
 }
 
-.favourite h3::after{
-  content:"❤️"
+.favourite {
+  border: 2px solid pink; /* 添加半透明的边框 */
+  color: pink; /* 设置文字颜色 */
+  box-shadow: 0px 0px 10px pink; /* 为喜欢的元素添加红色阴影 */
+
+}
+
+.favourite h3::before {
+  content:"❤️"; /* 喜欢的标志位于名字前面 */
+  color: pink; /* 设置标志的颜色 */
+  margin-right: 5px; /* 添加右边距 */
 }

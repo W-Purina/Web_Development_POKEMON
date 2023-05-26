@@ -25,6 +25,8 @@
 .shiny {
   background-color: var(--star);
   border-color: gold; /* 改变边框颜色 */
+  box-shadow: 0px 0px 10px gold; /* 为喜欢的元素添加红色阴影 */
+
 }
 
 .shiny p {
