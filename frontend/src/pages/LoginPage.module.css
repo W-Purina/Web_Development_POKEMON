@@ -3,6 +3,16 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     font-family: tahoma;
+    color:white;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This makes sure the container fills the whole screen */
 }
 
 .gradient {
@@ -64,13 +74,7 @@ body {
     }
 }
 
-.container {
-    position: relative;
-    z-index: 2;
-}
-
 .log-in {
-    padding-top: 15%;
     display: block;
     margin: 0 auto;
     width: 230px;
@@ -93,4 +97,11 @@ body {
     .log-in {
     	padding-top: 20px;
     }
+}
+
+
+.create{
+    float: left;
+    color:lightskyblue;
+
 }

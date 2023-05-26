@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useUser, useAuth } from "../components/Auth";
 import PokemonList from "../components/PokemonList";
 import { Link } from "react-router-dom";
+import styles from "./Header.module.css";
+
+
 
 export default function FavouritesPage() {
     const { username, _id } = useUser();
@@ -59,7 +62,7 @@ export default function FavouritesPage() {
         <div>
             <h1>Pokemon Trader App</h1>
             <h2>
-                Hi {username}! View your <Link to="/">Pokemon</Link>, or check out everyone's  <Link to="/favourites">favourites</Link>!
+                Hi {username}! View your <Link to="/" className={styles}>Pokemon</Link>, or check out everyone's  <Link to="/favourites">favourites</Link>!
             </h2>
 
             <h1>My Favourites</h1>

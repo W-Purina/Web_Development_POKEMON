@@ -25,13 +25,15 @@ export default function LoginPage() {
 
   return (
     <div className={styles.body}>
-      <div className={styles.gradient}></div>
+      <div className={styles.gradient}>
+        <h1>Login</h1>
+      </div>
       <div className={styles.container}>
         <div className={styles.login}>
           <UsernamePasswordForm buttonText="Log in" onSubmit={handleSubmit} />
-          <p>
-            New to the site? <Link to="/register">Create an account!</Link>
-          </p>
+          <div >
+          New to the site? <Link to="/register" className={styles.create}>Create an account!</Link>
+          </div>
         </div>
       </div>
     </div>
